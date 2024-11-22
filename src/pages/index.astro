@@ -1,8 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/nav.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h2 class="text-3xl bg-amber-800">Holita</h2>
+<Layout title="index">
+		<Nav />
+<div class="px-10 w-screen h-screen flex">
+<div class="flex-1 flex justify-left align-middle flex-wrap">
+	<h1 class="py-20 text-60 font-montserrat font-extrabold text-darkBlue" id="aboutMeTitle"></h1>
+</div>
+<div class="flex-1 bg-paleBlue">
+	<div class="relative">
+	<img class="top-0 left-0 -translate-x-20 h-screen" src="/profile.png" alt="alex">
+	</div>
+</div>
+</div>
 </Layout>

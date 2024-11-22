@@ -1,0 +1,34 @@
+---
+const nav = [
+    {
+        label: "About me",
+        href: "/",
+    },
+    {
+        label: "Studies",
+        href: "/studies",
+    },
+    {
+        label: "Skills",
+        href: "/skills",
+    },
+    {
+        label: "Trabajo",
+        href: "/trabajo",
+    },
+    {
+        label: "Proyectos",
+        href: "/proyecto",
+    }
+]
+---
+
+<nav class="py-3 px-5 fixed top-0 z-10 bg-whiteBrkn">
+    <ul class="flex gap-7 flex-row">
+        {nav.map((item) => (
+            <li>
+                <a href={item.href} class="text-darkBlue font-roboto italic font-medium text-30">{item.label}</a>
+            </li>
+        ))}
+    </ul>
+</nav>

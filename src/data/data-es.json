@@ -1,0 +1,13 @@
+{
+    "Nav": {
+        "aboutMe": "Sobre Mi",
+        "studies": "Estudios",
+        "skills": "Skills",
+        "work": "Trabajo",
+        "projects": "Proyectos"
+    },
+    "AboutMe": {
+       "aboutMeTitle": "Hola soy Alex Web developer y diseñador de escenografía!",
+       "aboutMePhrase":"Soy estudiante en la Universidad Tecnológica de Madrid y estudie Web Development y Diseño de Escenografía. Tengo experiencia en el campo de la música y el Diseño de Escenografía."
+    }
+}
