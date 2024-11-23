@@ -1,0 +1,47 @@
+{
+        "aboutMe": "About me",
+        "studies": "Studies",
+        "skills": "Skills",
+        "work": "Work",
+        "projects": "Projects",
+       "aboutMeTitle": "Hi I’m Alex Web developer and Stage designer!",
+       "aboutMePhrase":"As a recent graduate in Web Development, I'm passionate about creating impactful, user-centered websites and applications. I have developed a solid foundation in back-end and front-end technologies throughout my studies. My internship has allowed me to explore some of the development lifecycle, and I am eager to bring my skills and creativity to a dynamic team and continue growing as a developer.",
+        "studiesTitle": "Studies",
+        "studies1": {
+                "title": "Higher Technician in Digital design and Web Development.",
+                "description": "Aprendí bla bla bla bla y luego hice esto y lo otro y después dije que si y luego que no y entonces aqui estoy",
+                "date": "Santa Joaquina de Vedruna (2023-2025)"
+                },
+        "studies2": {
+                "title": "University degree in Stage Design and Scenography Technology.",
+                "description": "Aprendí bla bla bla bla y luego hice esto y lo otro y después dije que si y luego que no y entonces aqui estoy",
+                "date": "Escuela Superior de Arte Dramático  de Sevilla (2017-2022)"
+                },
+        "studies3": {
+                        "title": "French language medium level",
+                        "description": "",
+                        "date": "Instituto de Idiomas de la Universidad de Sevilla (2021)"
+                        },
+        
+
+        "skillsTitle": "Skills",
+        "sofwareDevelopment": "Software Development",
+        "frontendDevelopment": "Frontend Development",
+        "Skill1": {
+                "title": "java",
+                "description": "I have experience in java and have had the opportunity to work with it in various projects."
+        },
+       "Skill2": {
+                "title": "python",
+                "description": "I have experience in python and have had the opportunity to work with it in various projects."
+        },
+       "Skill3": {
+                "title": "javascript",
+                "description": "I have experience in javascript and have had the opportunity to work with it in various projects."
+        },
+       "Skill4": {
+                "title": "html",
+                "description": "I have experience in html and have had the opportunity to work with it in various projects."
+        }
+        
+}

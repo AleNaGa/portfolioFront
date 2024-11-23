@@ -1,0 +1,14 @@
+---
+// Recibe el id como propiedad
+interface props {
+  id: string;
+}
+// Desestructuramos la propiedad id
+const { id } = Astro.props;
+---
+<div>
+    <h3 class="font-roboto font-medium italic text-20 text-darkBlue w-10/12" id={`${id}-title`}></h3>
+    <div>
+        <p class="font-roboto font-light text-20 text-azulGris w-10/12" id={`${id}-description`}></p>
+    </div>
+</div>

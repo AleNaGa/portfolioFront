@@ -1,0 +1,19 @@
+---
+// Recibe el id como propiedad
+interface props {
+  id: string;
+}
+// Desestructuramos la propiedad id
+const { id } = Astro.props;
+---
+
+<!-- En el HTML, los IDs dentro de este componente deberían ser concatenados con el id pasado -->
+ <div class="flex  flex-row py-10 gap-32  border-2 border-azulGris border-opacity-70 p-10 rounded-3xl">
+<div id={id} class="flex justify-left align-middle flex-wrap flex-row w-1/2">
+    <h3 class="text-3xl font-roboto font-semibold text-azulGris text-wrap" id={`${id}-title`}></h3>
+    <p class="font-roboto font-light italic text-20 text-darkBlue w-10/12" id={`${id}-date`}></p>
+</div>
+<div class="flex justify-left align-middle flex-wrap flex-row ">
+    <p class="font-roboto font-medium text-20 text-azulGris w-10/12" id={`${id}-description`}></p>
+</div>
+</div>

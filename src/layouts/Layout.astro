@@ -8,15 +8,11 @@
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
-		<script defer src="consumir.js"></script>
 		<title>Document</title>
 	</head>
 	<body class="bg-whiteBrkn">
-	<div class="flex justify-end align-top gap-1">
-		<button class="fixed z-11 top-0 text-30 font-roboto italic font-bold text-darkBlue">EN</button>
-		<button class="fixed z-11 top-0 text-30 font-roboto italic font-bold text-darkBlue">ES</button>
-	</div>
 		<slot />
 		
 	</body>
+	<script src="/scripts/dynamic-lng.js" is:inline></script>
 </html>

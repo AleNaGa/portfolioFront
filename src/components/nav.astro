@@ -1,24 +1,24 @@
 ---
 const nav = [
     {
-        label: "About me",
-        href: "/",
+        id:"aboutMe",
+        href: "#aboutMesection",
     },
     {
-        label: "Studies",
-        href: "/studies",
+        id: "studies",
+        href: "#studiessection",
     },
     {
-        label: "Skills",
-        href: "/skills",
+        id: "skills",
+        href: "#skillssection",
     },
     {
-        label: "Trabajo",
-        href: "/trabajo",
+        id: "work",
+        href: "#worksection",
     },
     {
-        label: "Proyectos",
-        href: "/proyecto",
+        id: "projects",
+        href: "#projectssection",
     }
 ]
 ---
@@ -27,8 +27,14 @@ const nav = [
     <ul class="flex gap-7 flex-row">
         {nav.map((item) => (
             <li>
-                <a href={item.href} class="text-darkBlue font-roboto italic font-medium text-30">{item.label}</a>
+                <a href={item.href} class="text-darkBlue font-roboto italic font-medium text-30" id={item.id}></a>
             </li>
         ))}
+        <li>
+            <button class="text-30 font-roboto italic font-bold text-darkBlue" id="btn-en">EN</button>
+        </li>
+        <li>
+            <button class="text-30 font-roboto italic font-bold text-darkBlue" id="btn-es">ES</button>
+        </li>
     </ul>
 </nav>

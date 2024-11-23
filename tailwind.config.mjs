@@ -13,7 +13,7 @@ export default {
 
 			  },
 			fontFamily: {
-				roboto: ['Roboto', 'sans-serif'], //   fuente roboto
+				roboto: ['Roboto', 'sans-serif'], //   fuente titles
 				montserrat: ['Montserrat', 'sans-serif'], // Fuente Montserrat
 			  },
 			fontWeight: {
