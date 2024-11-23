@@ -4,7 +4,7 @@
         "skills": "Skills",
         "work": "Work",
         "projects": "Projects",
-       "aboutMeTitle": "Hi I’m Alex Web developer and Stage designer!",
+       "aboutMeTitle": "Hi I’m Alex, Web developer and Stage designer!",
        "aboutMePhrase":"As a recent graduate in Web Development, I'm passionate about creating impactful, user-centered websites and applications. I have developed a solid foundation in back-end and front-end technologies throughout my studies. My internship has allowed me to explore some of the development lifecycle, and I am eager to bring my skills and creativity to a dynamic team and continue growing as a developer.",
         "studiesTitle": "Studies",
         "studies1": {
@@ -25,23 +25,44 @@
         
 
         "skillsTitle": "Skills",
-        "sofwareDevelopment": "Software Development",
-        "frontendDevelopment": "Frontend Development",
-        "Skill1": {
-                "title": "java",
-                "description": "I have experience in java and have had the opportunity to work with it in various projects."
-        },
-       "Skill2": {
-                "title": "python",
-                "description": "I have experience in python and have had the opportunity to work with it in various projects."
-        },
-       "Skill3": {
-                "title": "javascript",
-                "description": "I have experience in javascript and have had the opportunity to work with it in various projects."
-        },
-       "Skill4": {
-                "title": "html",
-                "description": "I have experience in html and have had the opportunity to work with it in various projects."
-        }
+        "hardskills": "Hard Skills",
+        "softskills": "Soft Skills",
+        "java": "Java",
+        "css": "CSS",
+        "html": "HTML",
+        "js": "JavaScript",
+        "react": "React",
+        "mysql": "MySQL",
+        "php": "PHP",
+        "Azure": "Azure",
+        "python": "Python",
+        "git": "Git",
+        "leading": "Leading",
+        "problemsolving": "Problem Solving",
+        "communication": "Communication",
+        "teamwork": "Teamwork",
+        "adaptability": "Adaptability",
+        "creativity": "Creativity",
+        "workTitle": "Work",
+        "work1": {
+                "title": "NTTDATA Internship",
+                "description": "Spent 3 months as a NTTDATA Dual Intern with the role of Junior Web Developer.",
+                "date": "2023",
+                "link": "https://es.nttdata.com"
+                },
+        "work2": {
+                "title": "Veganitessen Crew Leader",
+                "description": "Worked as a Veganitessen Crew Leader at the university.",
+                "date": "2020-2021"
+                },
+        
+
+
+        "form-title": "Contact me",
+        "success-message": "Thanks for your message! I'll get back to you ASAP.",
+        "name-label": "Name",
+        "email-label": "Email",
+        "message-label": "Message",
+        "submit-button": "Send"
         
 }

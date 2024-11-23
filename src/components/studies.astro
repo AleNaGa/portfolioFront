@@ -7,13 +7,13 @@ interface props {
 const { id } = Astro.props;
 ---
 
-<!-- En el HTML, los IDs dentro de este componente deberían ser concatenados con el id pasado -->
- <div class="flex  flex-row py-10 gap-32  border-2 border-azulGris border-opacity-70 p-10 rounded-3xl">
-<div id={id} class="flex justify-left align-middle flex-wrap flex-row w-1/2">
-    <h3 class="text-3xl font-roboto font-semibold text-azulGris text-wrap" id={`${id}-title`}></h3>
-    <p class="font-roboto font-light italic text-20 text-darkBlue w-10/12" id={`${id}-date`}></p>
+<div class="flex flex-row py-10 gap-32 border-2 border-azulGris border-opacity-70 p-10 rounded-3xl transition-all hover:translate-x-2 hover:translate-y-2 hover:shadow-lg hover:bg-crudo hover:bg-opacity-40 duration-500 ease-in-out">
+  <div id={id} class="flex justify-left align-middle flex-wrap flex-row w-1/2">
+    <h3 class="text-3xl font-montserrat italic font-semibold text-azulGris text-wrap" id={`${id}-title`}></h3>
+    <p class="font-roboto font-bold italic text-20 text-paleBlue w-10/12" id={`${id}-date`}></p>
+  </div>
+  <div class="flex justify-left align-middle flex-wrap flex-row">
+    <p class="font-montserrat font-medium text-20 text-azulGris w-10/12" id={`${id}-description`}></p>
+  </div>
 </div>
-<div class="flex justify-left align-middle flex-wrap flex-row ">
-    <p class="font-roboto font-medium text-20 text-azulGris w-10/12" id={`${id}-description`}></p>
-</div>
-</div>
+

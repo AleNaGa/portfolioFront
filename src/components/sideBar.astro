@@ -1,17 +1,45 @@
+
+
+
 <div class="fixed right-0 top-1/2 transform -translate-y-1/2 bg-whiteBrkn p-4 rounded-l-lg flex flex-col items-center space-y-10">
-    <!-- Enlace de LinkedIn -->
-    <a href="https://www.linkedin.com" target="_blank" class="block">
-      <img src="/linkedinLogo.png" alt="LinkedIn" class="h-12 w-12" />
-    </a>
-  
-    <!-- Enlace de GitHub -->
-    <a href="https://github.com" target="_blank" class="block">
-      <img src="/gitHubIcon.png" alt="GitHub" class="h-12 w-12" />
-    </a>
-  
-    <!-- Enlace al Formulario -->
-    <a href="/formulario" target="_self" class="block">
-      <img src="/formIcon.png" alt="Formulario" class="h-12 w-12" />
-    </a>
+  <!-- Enlace de LinkedIn -->
+  <a href="https://www.linkedin.com" target="_blank" class="block w-12 h-12 relative overflow-hidden transition-transform duration-300 ease-in-out hover:scale-110">
+    <img src="/linkedinLogo.png" alt="LinkedIn" class="w-full h-full object-cover">
+  </a>
+
+  <!-- Enlace de GitHub -->
+  <a href="https://github.com/AleNaGa" target="_blank" class="block w-12 h-12 relative overflow-hidden transition-transform duration-300 ease-in-out hover:scale-110">
+    <img src="/gitHubIcon.png" alt="GitHub" class="w-full h-full object-cover">
+  </a>
+
+  <!-- Enlace al Formulario -->
+  <a href="#" id="open-form-link" class="block w-12 h-12 relative overflow-hidden transition-transform duration-300 ease-in-out hover:scale-110">
+    <img src="/formIcon.png" alt="Formulario" class="w-full h-full object-cover">
+  </a>  
+</div>
+
+<!-- Modal del formulario -->
+<div id="form-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+  <div class="bg-whiteBrkn p-8 rounded-lg shadow-lg w-96">
+    <h2 class="text-2xl font-montserrat font-semibold mb-4" id="form-title"></h2>
+
+    <!-- Mensaje de éxito tras el envío -->
+    <div id="success-message" class="hidden mb-4 text-green-500 font-roboto">
+    </div>
+
+    <!-- Formulario -->
+    <form id="contact-form">
+      <label for="name" class="block mb-2 font-roboto" id="name-label"></label>
+      <input type="text" id="name" name="name" class="border p-2 mb-4 w-full" required>
+
+      <label for="email" class="block mb-2 font-roboto" id="email-label"></label>
+      <input type="email" id="email" name="email" class="border p-2 mb-4 w-full" required>
+
+      <label for="message" class="block mb-2 font-roboto" id="message-label"></label>
+      <textarea id="message" name="message" class="border p-2 mb-4 w-full" required></textarea>
+
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded font-roboto" id="submit-button"></button>
+    </form>
   </div>
-  
+</div>
+

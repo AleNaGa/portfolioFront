@@ -7,12 +7,12 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/src/styles/global.css">
 		<title>Document</title>
 	</head>
-	<body class="bg-whiteBrkn">
+	<body class="bg-whiteBrkn w-screen overflow-x-hidden">
 		<slot />
-		
 	</body>
 	<script src="/scripts/dynamic-lng.js" is:inline></script>
+	<script src="/scripts/modal-form.js" is:inline></script>
 </html>

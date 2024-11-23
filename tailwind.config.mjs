@@ -18,7 +18,7 @@ export default {
 			  },
 			fontWeight: {
 				medium: '600', // Peso de fuente personalizado para "medium-bold 600"
-				extrabold: '800', // Peso de fuente personalizado para "extra-bold 800"
+				extrabold: '1000', // Peso de fuente personalizado para "extra-bold 800"
 			  },
 			fontSize:{
 				30: '20px', // Tamaño 30 pt convertido a píxeles
