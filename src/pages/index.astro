@@ -5,13 +5,14 @@ import SideBar from '../components/sideBar.astro';
 import Studies from '../components/studies.astro';
 import Work from '../components/work.astro';
 import Skill from '../components/skill.astro';
+import CardGenerator from '../components/CardGenerator.jsx';
 ---
 
 <Layout title="index">
 		<Nav />
 		<SideBar />
 
-<div class="px-10 w-screen h-screen flex" id="aboutMesection">
+<div class="px-16 w-screen h-screen flex" id="aboutMesection">
 		<div class="flex-1 flex justify-left align-middle flex-wrap py-32">
 			<h1 class="text-60 font-montserrat font-extrabold italic  text-darkBlue" id="aboutMeTitle"></h1>
 			<div class="text-clip px-20">
@@ -77,6 +78,15 @@ import Skill from '../components/skill.astro';
 				<Work id="work2" />
 			</div>
 			
+		</div>
+	</div>
+</div>
+
+<div class="px-10 w-screen h-screen flex" id="projectsection">
+	<div class="flex-1 flex justify-left align-middle flex-col py-32 gap-10 w-full">
+		<h1 class="text-60 font-montserrat font-extrabold italic text-darkBlue" id="projectTitle"></h1>
+		<div class="flex flex-row gap-5 px-10">
+					<CardGenerator client:only="react"/>
 		</div>
 	</div>
 </div>

@@ -43,6 +43,9 @@
         "teamwork": "Teamwork",
         "adaptability": "Adaptability",
         "creativity": "Creativity",
+        "comunication": "Comunication",
+
+
         "workTitle": "Work",
         "work1": {
                 "title": "NTTDATA Internship",
@@ -55,7 +58,12 @@
                 "description": "Worked as a Veganitessen Crew Leader at the university.",
                 "date": "2020-2021"
                 },
-        
+        "projectTitle": "Projects",
+        "buttonNext": "Next",
+        "buttonPrev": "Previous",
+        "buttonSearch": "Search",
+
+
 
 
         "form-title": "Contact me",
@@ -63,6 +71,16 @@
         "name-label": "Name",
         "email-label": "Email",
         "message-label": "Message",
-        "submit-button": "Send"
+        "submit-button": "Send",
+
+
+        "footerText":{
+                "1": "© 2023 Alex Web Developer and Stage Designer. All rights reserved.",
+                "2": " Also interested in: Sustainability || ",
+                "3": " Animal Care || ",
+                "4": " Animal Care || ",
+                "5": " Animal Care || ",
+                "6": " Animal Care || "
+        }
         
 }
