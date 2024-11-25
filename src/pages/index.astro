@@ -6,30 +6,34 @@ import Studies from '../components/studies.astro';
 import Work from '../components/work.astro';
 import Skill from '../components/skill.astro';
 import CardGenerator from '../components/CardGenerator.jsx';
+import References from '../components/References.astro';
 ---
 
 <Layout title="index">
-		<Nav />
+	
+		<Nav class="z-50"/>
+
 		<SideBar />
 
-<div class="px-16 w-screen h-screen flex" id="aboutMesection">
-		<div class="flex-1 flex justify-left align-middle flex-wrap py-32">
-			<h1 class="text-60 font-montserrat font-extrabold italic  text-darkBlue" id="aboutMeTitle"></h1>
-			<div class="text-clip px-20">
-			<p class="font-roboto font-medium text-20 text-azulMedio w-10/12" id="aboutMePhrase"></p>
+<div class="pt-10 pr-24 pl-20 w-screen h-screen flex flex-row justify-center" id="aboutMesection">
+	<div class="bg-gradient-to-b from-paleBlue to-whiteBrkn flex flex-row justify-center">
+		<div class="flex-1 flex align-middle flex-wrap p-20 flex-col">
+			<h1 class="text-60 font-montserrat font-extrabold italic text-wrap text-darkBlue" id="aboutMeTitle"></h1>
+			<h3 class="text-3xl font-montserrat italic font-semibold text-azulGris" id="aboutMeSubtitle"></h3>
+			<div class="text-wrap p-10">
+				<p class="font-roboto font-medium text-20 text-azulMedio w-10/12" id="aboutMePhrase"></p>
+			</div>
 		</div>
+	<div class="flex-1 justify-start align-middle">
+			<img class="h-full -z-30 pt-5" src="/profile.png" alt="alex">
 	</div>
-	<div class="flex-1 bg-gradient-to-l from-paleBlue to-whiteBrkn">
-		<div class="relative">
-			<img class="top-0 left-0 -translate-x-20 h-screen" src="/profile.png" alt="alex">
-		</div>
 	</div>
 </div>
 
-<div class="px-10 w-screen h-screen flex" id="studiessection">
-	<div class="flex-1 flex justify-left align-middle flex-col py-32 gap-10">
+<div class="px-20 w-screen h-min-screen flex" id="studiessection">
+	<div class="flex-1 flex justify-left align-middle flex-col py-20 gap-10">
 		<h1 class="text-60 font-montserrat font-extrabold italic text-darkBlue" id="studiesTitle"></h1>
-		<div class="flex flex-col px-20 gap-10">
+		<div class="flex flex-col px-10 gap-10">
 			<Studies id="studies1" />
 			<Studies id="studies2" />
 			<Studies id="studies3" />
@@ -39,11 +43,11 @@ import CardGenerator from '../components/CardGenerator.jsx';
 
 
 
-<div class="px-10 w-screen h-screen flex" id="skillssection">
-	<div class="flex-1 flex justify-left align-middle flex-col py-32 gap-10 w-full">
+<div class="px-20 w-screen h-min-screen flex" id="skillssection">
+	<div class="flex-1 flex justify-left align-middle flex-col py-20 gap-10 w-full">
 		<h1 class="text-60 font-montserrat font-extrabold italic text-darkBlue" id="skillsTitle"></h1>
 		<h3 class="px-10 text-3xl font-montserrat italic font-semibold text-azulGris" id="hardskills"></h3>
-		<div class="flex flex-row px-20 gap-10">
+		<div class="flex flex-row px-10 gap-10">
 			<Skill src="/java.png" alt="java" />
 			<Skill src="/css.png" alt="css" />
 			<Skill src="/js.png" alt="js" />
@@ -54,7 +58,7 @@ import CardGenerator from '../components/CardGenerator.jsx';
 			<Skill src="/git.png" alt="git" />
 		</div>
 		<h3 class="px-10 text-3xl font-montserrat italic font-semibold text-azulGris text-wrap" id="softskills"></h3>
-		<div class="flex flex-row px-20 gap-10">
+		<div class="flex flex-row px-10 gap-10">
 			<Skill src="/teamwork.png" alt="teamwork" />
 			<Skill src="/problemsolving.png" alt="problemsolving" />
 			<Skill src="/leading.png" alt="leading" />
@@ -67,23 +71,29 @@ import CardGenerator from '../components/CardGenerator.jsx';
 
 
 
-<div class="px-10 w-screen h-screen flex" id="worksection">
-	<div class="flex-1 flex justify-left align-middle flex-col py-32 gap-10 w-full">
+<div class="px-20 w-screen h-min-screen flex" id="worksection">
+	<div class="flex-1 flex justify-left align-middle flex-col py-20 gap-10 w-full">
 		<h1 class="text-60 font-montserrat font-extrabold italic text-darkBlue" id="workTitle"></h1>
-		<div class="flex flex-col gap-10 px-20">
+		<div class="flex flex-col gap-10 px-10">
 			<div class="flex flex-row p-10 gap-10 shadow-[4px_4px_6px_0px_rgba(0,0,0,0.2)]">
 				<Work id="work1" />
 			</div>
 			<div class="flex flex-row p-10 gap-10 shadow-[4px_4px_6px_0px_rgba(0,0,0,0.2)]">
 				<Work id="work2" />
 			</div>
+		<h1 class="text-30 font-montserrat font-extrabold italic text-darkBlue" id="referencesTitle"></h1>
+			<div class="flex flex-row gap-4 w-max-screen" id="referencessection">
+				<References id="reference1"/>
+				<References id="reference2"/>
+				<References id="reference3"/>
+			</div>
 			
 		</div>
 	</div>
 </div>
 
-<div class="px-10 w-screen h-screen flex" id="projectsection">
-	<div class="flex-1 flex justify-left align-middle flex-col py-32 gap-10 w-full">
+<div class="px-20 w-screen h-min-screen flex" id="projectsection">
+	<div class="flex-1 flex justify-left align-middle flex-col py-20 gap-10 w-full">
 		<h1 class="text-60 font-montserrat font-extrabold italic text-darkBlue" id="projectTitle"></h1>
 		<div class="flex flex-row gap-5 px-10">
 					<CardGenerator client:only="react"/>

@@ -1,7 +1,7 @@
 
 
 
-<div class="fixed right-0 top-1/2 transform -translate-y-1/2 bg-whiteBrkn p-4 rounded-l-lg flex flex-col items-center space-y-10">
+<div class="fixed right-0 top-1/2 transform -translate-y-1/2 bg-whiteBrkn p-4 rounded-l-lg flex flex-col items-center space-y-10 z-50">
   <!-- Enlace de LinkedIn -->
   <a href="https://www.linkedin.com" target="_blank" class="block w-12 h-12 relative overflow-hidden transition-transform duration-300 ease-in-out hover:scale-110">
     <img src="/linkedinLogo.png" alt="LinkedIn" class="w-full h-full object-cover">
@@ -30,13 +30,15 @@
     <!-- Formulario -->
     <form id="contact-form">
       <label for="name" class="block mb-2 font-roboto" id="name-label"></label>
-      <input type="text" id="name" name="name" class="border p-2 mb-4 w-full" required>
+      <input type="text" id="name" name="name" class="border p-2 mb-4 w-full" pattern="[A-Z][a-zA-Z\s]*" 
+      title="Name must start with an uppercase letter." required>
 
       <label for="email" class="block mb-2 font-roboto" id="email-label"></label>
       <input type="email" id="email" name="email" class="border p-2 mb-4 w-full" required>
 
       <label for="message" class="block mb-2 font-roboto" id="message-label"></label>
-      <textarea id="message" name="message" class="border p-2 mb-4 w-full" required></textarea>
+      <textarea id="message" name="message" class="border p-2 mb-4 w-full" minlength="20" 
+      title="Message must be at least 20 characters long." required></textarea>
 
       <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded font-roboto" id="submit-button"></button>
     </form>

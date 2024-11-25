@@ -23,18 +23,24 @@ const nav = [
 ]
 ---
 
-<nav class="py-3 px-5 fixed top-0 z-10 bg-whiteBrkn">
-    <ul class="flex gap-7 flex-row">
+<nav class="py-3 fixed w-screen top-0 z-50 bg-whiteBrkn flex flex-row justify-between">
+    <ul class="flex gap-7 flex-row pl-14">
         {nav.map((item) => (
             <li>
                 <a href={item.href} class="text-darkBlue font-roboto italic font-medium text-30" id={item.id}></a>
             </li>
         ))}
-        <li>
-            <button class="text-30 font-roboto italic font-bold text-darkBlue" id="btn-en">EN</button>
+    </ul>
+    <ul class="flex gap-7 flex-row pr-24">
+        <li >
+            <button class="h-5" id="btn-en">
+                <img src="/en.png" alt="en" class="text-30 font-roboto italic font-bold text-darkBlue w-6 h-6 rounded-xl" />
+            </button>
         </li>
-        <li>
-            <button class="text-30 font-roboto italic font-bold text-darkBlue" id="btn-es">ES</button>
+        <li >
+            <button class="h-5" id="btn-es">
+                <img src="es.png" alt="es" class="text-30 font-roboto italic font-bold text-darkBlue w-6 h-6 rounded-xl"/>
+            </button>
         </li>
     </ul>
 </nav>

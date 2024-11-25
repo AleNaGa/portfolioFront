@@ -35,11 +35,6 @@ const CardGenerator = () => {
 
   // Esta función maneja la búsqueda por palabra
   const getByWord = async (word = "") => {
-    if (word === "") {
-      fetchProjects(page); // Si no hay palabra, recuperar todos los proyectos
-      return;
-    }
-
     try {
       const response = await fetch(`${url}/byword/${word}?size=3&page=${page}`);
       const data = await response.json();
@@ -50,6 +45,7 @@ const CardGenerator = () => {
         setTotalPages(data.totalPages || 1);
       }
     } catch (error) {
+      alert('No se encontraron proyectos');
       console.error(error);
     }
   };
@@ -59,12 +55,8 @@ const CardGenerator = () => {
     try {
       const response = await fetch(`http://localhost:8080/api/v1/projects/bytech/${techName}?size=3&page=${page}`);
       const data = await response.json();
-      if (data === null || data.content.length === 0) {
-        alert('No se encontraron proyectos para esta tecnología');
-      } else {
         setPosts(data.content || []);
         setTotalPages(data.totalPages || 1);
-      }
     } catch (error) {
       console.error(error);
     }
@@ -103,19 +95,37 @@ const CardGenerator = () => {
 
       {/* Input y Botón de búsqueda por palabra */}
       <div className="flex items-center gap-2 mb-4">
-        <input
-          type="text"
-          placeholder="Search by name..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)} // Actualiza el estado de búsqueda
-          className="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <button
-          onClick={handleSearch} // Llama a la función de búsqueda al hacer clic
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-400"
-            id="buttonSearch">
-        </button>
-      </div>
+          <input
+            type="text"
+            placeholder="Search by name..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)} // Actualiza el estado de búsqueda
+            className="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            onClick={handleSearch} // Llama a la función de búsqueda al hacer clic
+            disabled={searchTerm.length < 3} // Deshabilitar si el término de búsqueda es menor a 3 caracteres
+            className={`px-4 py-2 rounded-lg shadow-lg ${
+              searchTerm.length < 3
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-blue-500 text-white hover:bg-blue-400"
+            }`}
+            id="buttonSearch"
+          >
+            Search
+          </button>
+          <button
+            onClick={() => {
+              setSearchTerm(""); // Restablece el término de búsqueda
+              fetchProjects(); // Llama a una función para mostrar todos los proyectos
+            }}
+            className="px-4 py-2 bg-red-500 text-whiteBrkn rounded-lg shadow-lg hover:bg-red-400"
+          >
+            Cancel
+          </button>
+        </div>
+
+
 
       {/* Mostrar las tarjetas de proyectos */}
       <div className="flex flex-row gap-4">

@@ -16,22 +16,81 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Función para validar un campo individual
-  const validateField = (input) => {
+   // Función para validar campos según su tipo
+   const validateField = (input) => {
+    if (input.id === 'name') {
+      validateName(input);
+    } else if (input.id === 'email') {
+      validateEmail(input);
+    } else if (input.id === 'message') {
+      validateMessage(input);
+    }
+  };
+
+  // Función para validar el campo name
+  const validateName = (input) => {
     input.classList.remove('valid', 'invalid');
 
     if (input.value.trim() === "") {
-
       input.classList.add('invalid');
+    }else {
+          const firstChar = input.value.trim().charAt(0); // Obener el primer caracter
+      if (firstChar === firstChar.toUpperCase() && /[A-Z]/.test(firstChar)) { // condicional de que la primera letra sea Mayúscula
+        input.classList.remove('invalid'); // Eliminamos la clase 'invalid'
+        input.classList.add('valid'); // validamos
+      } else {
+        input.classList.add('invalid'); //invalidamos
+        input.classList.remove('valid');  // Eliminamos la clase 'valid'
+      }
+    }
+  };
+
+  // Función para validar el campo email
+  const validateEmail = (input) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para validar correos
+    if (input.value.trim() === "") {
+      input.classList.add('invalid');
+      input.classList.remove('valid');
+    } else if (emailRegex.test(input.value.trim())) { // Si el correo es válido
+        input.classList.add('valid');
+        input.classList.remove('invalid');
     } else {
-      input.classList.add('valid');
+        input.classList.add('invalid');
+        input.classList.remove('valid');
+    }
+  };
+
+  // Función para validar el campo message
+  const validateMessage = (input) => {
+    input.classList.remove('valid', 'invalid');
+
+    if (input.value.trim() === "") {
+      input.classList.add('invalid');
+      error.textContent = 'Message must be at least 20 characters long.';
+    }else {
+      input.classList.remove('invalid');
+      if (input.value.trim().length < 20){
+        input.classList.add('invalid');
+        input.classList.remove('valid');
+      }else{
+        input.classList.add('valid');
+        input.classList.remove('invalid');
+      }
     }
   };
 
   // Manejar la validación en tiempo real
   form.querySelectorAll('input, textarea').forEach(input => {
     input.addEventListener('blur', () => {
-      validateField(input);
+      if(input.id === 'name') {
+        validateName(input);
+      }
+      else if(input.id === 'email') {
+        validateEmail(input);
+      }
+      else if (input.id === 'message') {
+        validateMessage(input);
+      }
     });
     input.addEventListener('input', () => {
       validateField(input);

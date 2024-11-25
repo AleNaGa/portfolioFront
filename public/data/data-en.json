@@ -4,8 +4,9 @@
         "skills": "Skills",
         "work": "Work",
         "projects": "Projects",
-       "aboutMeTitle": "Hi I’m Alex, Web developer and Stage designer!",
-       "aboutMePhrase":"As a recent graduate in Web Development, I'm passionate about creating impactful, user-centered websites and applications. I have developed a solid foundation in back-end and front-end technologies throughout my studies. My internship has allowed me to explore some of the development lifecycle, and I am eager to bring my skills and creativity to a dynamic team and continue growing as a developer.",
+       "aboutMeTitle": "Hi I’m Alex!",
+       "aboutMeSubtitle":"Web developer and Stage designer",
+       "aboutMePhrase":"As a recent graduate in Web Development, I'm passionate about creating impactful, user-centered websites and applications. I have developed a solid foundation in back-end and front-end technologies.",
         "studiesTitle": "Studies",
         "studies1": {
                 "title": "Higher Technician in Digital design and Web Development.",
@@ -58,6 +59,13 @@
                 "description": "Worked as a Veganitessen Crew Leader at the university.",
                 "date": "2020-2021"
                 },
+        "referencesTitle": "References",
+        "reference1": {
+                "img": "/references/reference1.png",
+                "title": "Jose Alberto Martinez",
+                "description": "Jefe en el departamento de diseño de la escena",
+                "contact": "Contacto: +346112233"
+                },
         "projectTitle": "Projects",
         "buttonNext": "Next",
         "buttonPrev": "Previous",
@@ -75,12 +83,12 @@
 
 
         "footerText":{
-                "1": "© 2023 Alex Web Developer and Stage Designer. All rights reserved.",
+                "1": "© 2024 Alejandro Navarro García - Web Developer. All rights reserved.",
                 "2": " Also interested in: Sustainability || ",
                 "3": " Animal Care || ",
-                "4": " Animal Care || ",
-                "5": " Animal Care || ",
-                "6": " Animal Care || "
+                "4": " Video Game Development || ",
+                "5": " Cinema || ",
+                "6": " Music || "
         }
         
 }

@@ -22,7 +22,7 @@ export default {
 			  },
 			fontSize:{
 				30: '20px', // Tamaño 30 pt convertido a píxeles
-				60: '40px', // Tamaño de 60 px
+				60: '35px', // Tamaño de 60 px
 			}
 		},
 	},
