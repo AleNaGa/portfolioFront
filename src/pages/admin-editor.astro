@@ -1,0 +1,156 @@
+<---
+import LayoutAdmin from "../layouts/LayoutAdmin.astro"
+---
+
+<LayoutAdmin>
+<div class="p-5">
+    <h2>Admin Editor</h2>
+    <div id="tablediv">
+    </div>
+    <div id="tablasDevYTech" class="flex-flex-row gap-5">
+        <div id="tableDev">
+        </div>
+        <div id="tableTech">
+        </div>
+    </div>
+<div class="flex flex-row w-fit gap-5" id="formsDiv">
+    <form id="formEdit" method="GET">
+    </form>
+    <!-- Formulario de Inserción -->
+    <form id="insertForm" class="p-4 bg-whiteBrkn rounded shadow w-full">
+        <h4 class="text-lg font-semibold text-darkBlue mb-4">Formulario de Inserción</h4>
+
+        
+        <label for="projectId" class="block text-sm font-medium text-darkBlue mt-2">ID del Proyecto</label>
+        <input type="number" id="projectId" name="projectId" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm" required>
+
+    
+        <label for="name" class="block text-sm font-medium text-darkBlue mt-2">Nombre del Proyecto</label>
+        <input type="text" id="name" name="name" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm" required>
+
+    
+        <label for="description" class="block text-sm font-medium text-darkBlue mt-2">Descripción</label>
+        <input type="text" id="description" name="description" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm">
+
+        
+        <label for="startDate" class="block text-sm font-medium text-darkBlue mt-2">Fecha de Inicio</label>
+        <input type="date" id="startDate" name="startDate" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm">
+
+    
+        <label for="endDate" class="block text-sm font-medium text-darkBlue mt-2">Fecha de Fin</label>
+        <input type="date" id="endDate" name="endDate" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm">
+
+        
+        <label for="repoUrl" class="block text-sm font-medium text-darkBlue mt-2">URL del Repositorio</label>
+        <input type="url" id="repoUrl" name="repoUrl" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm">
+
+        
+        <label for="demoUrl" class="block text-sm font-medium text-darkBlue mt-2">URL de la Demo</label>
+        <input type="url" id="demoUrl" name="demoUrl" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm">
+
+        
+        <label for="pictureUrl" class="block text-sm font-medium text-darkBlue mt-2">URL de la Imagen</label>
+        <input type="text" id="pictureUrl" name="pictureUrl" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm">
+
+        
+        <label for="technologiesIds" class="block text-sm font-medium text-darkBlue mt-2">IDs de Tecnologías (separados por comas)</label>
+        <input type="text" id="technologiesIds" name="technologiesIds" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm">
+
+    
+        <label for="developersIds" class="block text-sm font-medium text-darkBlue mt-2">IDs de Desarrolladores (separados por comas)</label>
+        <input type="text" id="developersIds" name="developersIds" class="block w-full mt-1 p-2 border border-darkBlue rounded text-sm">
+
+        
+        <input type="submit" value="Insertar" class="mt-4 w-full bg-paleBlue hover:bg-darkBlue text-whiteBrkn py-2 px-4 rounded cursor-pointer">
+    </form>
+
+    <div class="flex flex-col w-full gap-10" id="formDiv">
+        <!-- Formulario para asignar un desarrollador a un proyecto -->
+        <form id="assignDeveloperForm" class="w-full max-w-xs mx-auto p-4 rounded-lg shadow-md">
+            <h2 class="text-center text-xl font-semibold mb-4">Asignar Desarrollador a Proyecto</h2>
+            <div class="mb-4">
+                <label for="developerId" class="block text-sm font-medium text-gray-700">ID del Desarrollador</label>
+                <input type="text" id="developerId" name="developerId" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce el ID del desarrollador" required>
+            </div>
+            <div class="mb-4">
+                <label for="projectIdAddDev" class="block text-sm font-medium text-gray-700">ID del Proyecto</label>
+                <input type="text" id="projectIdAddDev" name="projectIdAddDev" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce el ID del proyecto" required>
+            </div>
+            <button type="button" id="assignBtnDev" class="w-full py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">Asignar Desarrollador</button>
+        </form>
+        <!-- Formulario para desasignar la tecnología de un proyecto -->
+        <form id="assignDeveloperForm" class="w-full max-w-xs mx-auto p-4 rounded-lg shadow-md">
+            <h2 class="text-center text-xl font-semibold mb-4">Asignar Tecnología a Proyecto</h2>
+            <div class="mb-4">
+                <label for="technologyId" class="block text-sm font-medium text-gray-700">ID de la Tecnología</label>
+                <input type="text" id="technologyId" name="developerId" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce el ID del desarrollador" required>
+            </div>
+            <div class="mb-4">
+                <label for="projectIdAddTech" class="block text-sm font-medium text-gray-700">ID del Proyecto</label>
+                <input type="text" id="projectIdAddTech" name="projectIdAddDev" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce el ID del proyecto" required>
+            </div>
+            <button type="button" id="assignBtnTech" class="w-full py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">Asignar Desarrollador</button>
+        </form>
+    </div>
+
+    <div id="insertDevYTech" class="flex-flex-row gap-5 w-full">
+        <form id="developerForm" class="w-full max-w-md mx-auto p-4 rounded-lg shadow-md">
+            <h2 class="text-center text-xl font-semibold mb-4">Añadir nuevo Desarrollador</h2>
+        
+      
+            <div class="mb-4">
+                <label for="devname" class="block text-sm font-medium text-gray-700">Nombre</label>
+                <input type="text" id="devname" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce el nombre" required>
+            </div>
+        
+            <div class="mb-4">
+                <label for="surname" class="block text-sm font-medium text-gray-700">Apellido</label>
+                <input type="text" id="surname" name="surname" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce el apellido" required>
+            </div>
+        
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce el email" required>
+            </div>
+        
+          
+            <div class="mb-4">
+                <label for="linkedinUrl" class="block text-sm font-medium text-gray-700">URL de LinkedIn</label>
+                <input type="url" id="linkedinUrl" name="linkedinUrl" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce la URL de LinkedIn" required>
+            </div>
+        
+        
+            <div class="mb-4">
+                <label for="githubUrl" class="block text-sm font-medium text-gray-700">URL de GitHub</label>
+                <input type="url" id="githubUrl" name="githubUrl" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce la URL de GitHub" required>
+            </div>
+        
+        
+            <div class="mb-4">
+                <label for="projectsIds" class="block text-sm font-medium text-gray-700">IDs de Proyectos (separados por comas)</label>
+                <input type="text" id="projectsIds" name="projectsIds" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce los IDs de los proyectos" required>
+            </div>
+        
+          
+            <button type="button" id="submitBtnDev" class="w-full py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">Enviar</button>
+        </form>
+        <form id="techForm" class="w-full max-w-md mx-auto p-4 rounded-lg shadow-md">
+            <h2 class="text-center text-xl font-semibold mb-4">Añadir Nueva Tecnología</h2>
+            
+            <div class="mb-4">
+                <label for="techName" class="block text-sm font-medium text-gray-700">Nombre de la Tecnología</label>
+                <input type="text" id="techName" name="techName" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Introduce el nombre de la tecnología" required>
+            </div>
+        
+            <button type="button" id="submitBtnTech" class="w-full py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">Añadir Tecnología</button>
+        </form>
+        
+        
+        
+    </div>
+    
+</div>
+    
+</div>
+<script src="/scripts/script-admin.js" is:inline></script>
+</LayoutAdmin>

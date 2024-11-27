@@ -47,24 +47,18 @@ import References from '../components/References.astro';
 	<div class="flex-1 flex justify-left align-middle flex-col py-20 gap-10 w-full">
 		<h1 class="text-60 font-montserrat font-extrabold italic text-darkBlue" id="skillsTitle"></h1>
 		<h3 class="px-10 text-3xl font-montserrat italic font-semibold text-azulGris" id="hardskills"></h3>
-		<div class="flex flex-row px-10 gap-10">
-			<Skill src="/java.png" alt="java" />
-			<Skill src="/css.png" alt="css" />
-			<Skill src="/js.png" alt="js" />
-			<Skill src="/mysql.png" alt="mysql" />
-			<Skill src="/php.png" alt="php" />
-			<Skill src="/Azure.png" alt="Azure" />
-			<Skill src="/html.png" alt="html" />
-			<Skill src="/git.png" alt="git" />
+		<div class="flex flex-wrap px-10 gap-5">
+			<Skill skill='HTML' level={80} />
+			<Skill skill='HTML' level={80} />
+			<Skill skill='HTML' level={80} />
+			<Skill skill='HTML' level={80} />
+			<Skill skill='HTML' level={80} />
+			
 		</div>
 		<h3 class="px-10 text-3xl font-montserrat italic font-semibold text-azulGris text-wrap" id="softskills"></h3>
-		<div class="flex flex-row px-10 gap-10">
-			<Skill src="/teamwork.png" alt="teamwork" />
-			<Skill src="/problemsolving.png" alt="problemsolving" />
-			<Skill src="/leading.png" alt="leading" />
-			<Skill src="/mysql.png" alt="MySQL" />
-			<Skill src="/php.png" alt="PHP" />
-			<Skill src="/Azure.png" alt="Azure" />
+		<div class="flex flex-col px-10 gap-5">
+			<Skill skill='Comunicación' level={100} />
+			
 		</div>
 	</div>
 </div>
@@ -75,16 +69,14 @@ import References from '../components/References.astro';
 	<div class="flex-1 flex justify-left align-middle flex-col py-20 gap-10 w-full">
 		<h1 class="text-60 font-montserrat font-extrabold italic text-darkBlue" id="workTitle"></h1>
 		<div class="flex flex-col gap-10 px-10">
-			<div class="flex flex-row p-10 gap-10 shadow-[4px_4px_6px_0px_rgba(0,0,0,0.2)]">
 				<Work id="work1" />
-			</div>
-			<div class="flex flex-row p-10 gap-10 shadow-[4px_4px_6px_0px_rgba(0,0,0,0.2)]">
 				<Work id="work2" />
-			</div>
+		
 		<h1 class="text-30 font-montserrat font-extrabold italic text-darkBlue" id="referencesTitle"></h1>
-			<div class="flex flex-row gap-4 w-max-screen" id="referencessection">
+			<div class="flex flex-row gap-4 w-full justify-center" id="referencessection">
 				<References id="reference1"/>
 				<References id="reference2"/>
+				<References id="reference3"/>
 				<References id="reference3"/>
 			</div>
 			

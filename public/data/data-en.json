@@ -10,17 +10,17 @@
         "studiesTitle": "Studies",
         "studies1": {
                 "title": "Higher Technician in Digital design and Web Development.",
-                "description": "Aprendí bla bla bla bla y luego hice esto y lo otro y después dije que si y luego que no y entonces aqui estoy",
+                "description": "I've learn the use of basic developing lenguages and developed some projects in this area. Mostly worked with Java adn Spring Boot, with MySQL DB and HTML, CSS and JS. Also worked with Git and Github and deploying in Azure.",
                 "date": "Santa Joaquina de Vedruna (2023-2025)"
                 },
         "studies2": {
                 "title": "University degree in Stage Design and Scenography Technology.",
-                "description": "Aprendí bla bla bla bla y luego hice esto y lo otro y después dije que si y luego que no y entonces aqui estoy",
+                "description": "Spend 4 years designing and working in groups for different theater proyects, with a strong focus on design, production and team management",
                 "date": "Escuela Superior de Arte Dramático  de Sevilla (2017-2022)"
                 },
         "studies3": {
                         "title": "French language medium level",
-                        "description": "",
+                        "description": "Studied French language at the Instituto de Idiomas de la Universidad de Sevilla for several months and reached a B2 level.",
                         "date": "Instituto de Idiomas de la Universidad de Sevilla (2021)"
                         },
         
@@ -28,25 +28,6 @@
         "skillsTitle": "Skills",
         "hardskills": "Hard Skills",
         "softskills": "Soft Skills",
-        "java": "Java",
-        "css": "CSS",
-        "html": "HTML",
-        "js": "JavaScript",
-        "react": "React",
-        "mysql": "MySQL",
-        "php": "PHP",
-        "Azure": "Azure",
-        "python": "Python",
-        "git": "Git",
-        "leading": "Leading",
-        "problemsolving": "Problem Solving",
-        "communication": "Communication",
-        "teamwork": "Teamwork",
-        "adaptability": "Adaptability",
-        "creativity": "Creativity",
-        "comunication": "Comunication",
-
-
         "workTitle": "Work",
         "work1": {
                 "title": "NTTDATA Internship",

@@ -23,7 +23,7 @@ const nav = [
 ]
 ---
 
-<nav class="py-3 fixed w-screen top-0 z-50 bg-whiteBrkn flex flex-row justify-between">
+<nav class="py-3 px-3 fixed w-screen top-0 z-50 bg-whiteBrkn flex flex-row justify-between">
     <ul class="flex gap-7 flex-row pl-14">
         {nav.map((item) => (
             <li>
@@ -31,15 +31,20 @@ const nav = [
             </li>
         ))}
     </ul>
-    <ul class="flex gap-7 flex-row pr-24">
+    <ul class="flex gap-7 flex-row pr-28">
+        <li>
+            <a class="text-azulGris hover:text-azulMedio decoration-none" href="/admin-editor" target="_blank">
+                <img src="admin.png" alt="admin" class=" w-6 h-6 rounded-xl" />
+            </a>
+        </li>
         <li >
             <button class="h-5" id="btn-en">
-                <img src="/en.png" alt="en" class="text-30 font-roboto italic font-bold text-darkBlue w-6 h-6 rounded-xl" />
+                <img src="en.jpg" alt="en" class="w-6 h-6 rounded-xl" />
             </button>
         </li>
         <li >
             <button class="h-5" id="btn-es">
-                <img src="es.png" alt="es" class="text-30 font-roboto italic font-bold text-darkBlue w-6 h-6 rounded-xl"/>
+                <img src="es.png" alt="es" class=" w-6 h-6 rounded-xl"/>
             </button>
         </li>
     </ul>
