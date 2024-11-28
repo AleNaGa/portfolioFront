@@ -27,25 +27,26 @@ const nav = [
     <ul class="flex gap-7 flex-row pl-14">
         {nav.map((item) => (
             <li>
-                <a href={item.href} class="text-darkBlue font-roboto italic font-medium text-30" id={item.id}></a>
+                <a href={item.href} class="text-darkBlue font-roboto italic font-medium text-30 hover:text-azulGris hover:drop-shadow-md" id={item.id}></a>
             </li>
         ))}
     </ul>
-    <ul class="flex gap-7 flex-row pr-20">
+    <ul class="flex gap-7 flex-row pr-24">
         <li>
-            <a class="text-azulGris hover:text-azulMedio decoration-none" href="/log-admin" >
-                <img src="admin.png" alt="admin" class=" w-6 h-6 rounded-xl" />
+            <a class="transition-all duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl flex items-center" href="/log-admin">
+                <img src="admin.png" alt="admin" class="w-6 h-6 rounded-xl" />
             </a>
         </li>
-        <li >
-            <button class="h-5" id="btn-en">
+        <li>
+            <button class="transition-all duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl flex items-center" id="btn-en">
                 <img src="en.jpg" alt="en" class="w-6 h-6 rounded-xl" />
             </button>
         </li>
-        <li >
-            <button class="h-5" id="btn-es">
-                <img src="es.png" alt="es" class=" w-6 h-6 rounded-xl"/>
+        <li>
+            <button class="transition-all duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl flex items-center" id="btn-es">
+                <img src="es.png" alt="es" class="w-6 h-6 rounded-xl"/>
             </button>
         </li>
     </ul>
+    
 </nav>

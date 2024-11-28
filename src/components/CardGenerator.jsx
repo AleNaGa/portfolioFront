@@ -104,7 +104,7 @@ const CardGenerator = () => {
           <button
             key={tech.id}
             onClick={() => handleTechClick(tech.name)} // Llama a handleTechClick con el nombre de la tecnología
-            className="px-4 py-2 bg-paleBlue text-darkBlue rounded-lg shadow-lg hover:bg-azulMedio"
+            className="px-4 py-2 bg-paleBlue text-darkBlue rounded-lg shadow-lg hover:bg-crudo"
           >
             {tech.name}
           </button>
@@ -118,7 +118,7 @@ const CardGenerator = () => {
             placeholder="Search by name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)} // Actualiza el estado de búsqueda
-            className="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-paleBlue"
           />
           <button
             onClick={handleSearch} // Llama a la función de búsqueda al hacer clic
@@ -126,7 +126,7 @@ const CardGenerator = () => {
             className={`px-4 py-2 rounded-lg shadow-lg ${
               searchTerm.length < 3
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-500 text-white hover:bg-blue-400"
+                : "bg-paleBlue text-darkBlue hover:bg-cyan-400"
             }`}
             id="buttonSearch"
           >
@@ -137,7 +137,7 @@ const CardGenerator = () => {
               setSearchTerm(""); // Restablece el término de búsqueda
               fetchProjects(); // Llama a una función para mostrar todos los proyectos
             }}
-            className="px-4 py-2 bg-red-500 text-whiteBrkn rounded-lg shadow-lg hover:bg-red-400"
+            className="px-4 py-2 bg-crudo text-whiteBrkn rounded-lg shadow-lg hover:bg-red-400"
           >
             Reset
           </button>

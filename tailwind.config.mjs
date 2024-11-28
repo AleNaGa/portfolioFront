@@ -4,11 +4,11 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				darkBlue: '#222E38', // Color personalizado
-				whiteBrkn: '#F5EEE8', // Color de fondo personalizado
-				paleBlue: '#9CD2FF', // color personalizado
-				crudo: '#F5D5B8',
-				azulGris: '#4F6B81',
+				darkBlue: '#464E84', // Color personalizado
+				whiteBrkn: '#FFF3DA', // Color de fondo personalizado
+				paleBlue: '#96C6E5', // color personalizado
+				crudo: '#FE887E',
+				azulGris: '#AE80B0',
 				azulMedio: '#78A3C5',
 
 			  },

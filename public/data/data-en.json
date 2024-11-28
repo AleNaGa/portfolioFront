@@ -43,9 +43,27 @@
         "referencesTitle": "References",
         "reference1": {
                 "img": "/references/reference1.png",
-                "title": "Jose Alberto Martinez",
-                "description": "Jefe en el departamento de diseño de la escena",
-                "contact": "Contacto: +346112233"
+                "title": "Jose Martínez",
+                "description": "Profesor de diseño de la escena",
+                "contact": "Contacto: jose@telefónica.es"
+                },
+        "reference2": {
+                "img": "/references/reference2.png",
+                "title": "Anabel Reyes",
+                "description": "Coordinadora del restaurante Veganitessen",
+                "contact": "Contacto: anabelReyes@gmail.com"
+                },
+        "reference3": {
+                "img": "/references/reference3.png",
+                "title": "José Navarro",
+                "description": "Jefe de equipo de montaje Wallahye",
+                "contact": "Contacto: wallahyeProd@hotmail.es"
+                },
+        "reference4": {
+                "img": "/references/reference4.png",
+                "title": "Joaquín Borrego",
+                "description": "Tutor del grado DAW en Vedruna",
+                "contact": "Contacto: joaquin@telefónica.es"
                 },
         "projectTitle": "Projects",
         "buttonNext": "Next",

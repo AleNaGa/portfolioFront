@@ -45,4 +45,4 @@ document.getElementById('btn-es').addEventListener('click', () => loadContent('e
 document.getElementById('btn-en').addEventListener('click', () => loadContent('en'));
 
 // Cargar el contenido en español por defecto
-loadContent('es');
+loadContent('en');
