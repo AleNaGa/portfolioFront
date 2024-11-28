@@ -14,7 +14,7 @@ const CardGenerator = () => {
   // Esta función maneja la lógica para obtener proyectos de la API
   const fetchProjects = async (page = 0) => {
     try {
-      const response = await fetch(`${url}?size=1&page=${page}`);
+      const response = await fetch(`${url}?size=3&page=${page}`);
       const data = await response.json();
       setPosts(data.content || []);
       setTotalPages(data.totalPages || 1);
