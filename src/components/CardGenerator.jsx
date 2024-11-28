@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from './Card'; // Asegúrate de que esta ruta esté correcta
+import { render } from 'astro/compiler-runtime';
 
 const CardGenerator = () => {
   const [page, setPage] = useState(0);
@@ -8,11 +9,12 @@ const CardGenerator = () => {
   const [searchTerm, setSearchTerm] = useState(""); // El estado para el campo de búsqueda
   const [technologies, setTechnologies] = useState([]); // Estado para las tecnologías
   const url = "http://localhost:8080/api/v1/projects";
+  const arrayPages = [...Array(totalPages).keys()];// Creamos un array con el total de paginas para el paginado
 
   // Esta función maneja la lógica para obtener proyectos de la API
   const fetchProjects = async (page = 0) => {
     try {
-      const response = await fetch(`${url}?size=3&page=${page}`);
+      const response = await fetch(`${url}?size=1&page=${page}`);
       const data = await response.json();
       setPosts(data.content || []);
       setTotalPages(data.totalPages || 1);
@@ -78,15 +80,31 @@ const CardGenerator = () => {
     fetchTechnologies(); // Llamamos a la función para obtener las tecnologías
   }, [page]);
 
+  //Función para renderizar los botones de las páginas
+  const renderPageButtons = () => {
+    return arrayPages.map((pageNumber) => (
+      <button
+        key={pageNumber}
+        onClick={() => setPage(pageNumber)}
+        className={`px-4 py-2 rounded-lg shadow-lg hover:bg-azulMedio ${
+          page === pageNumber ? "bg-azulMedio text-whiteBrkn" : "bg-paleBlue text-darkBlue"
+        }`}
+      >
+        {pageNumber + 1}
+      </button>
+    ));
+  };
+  
+
   return (
-    <div>
+    <div class="flex flex-col w-full">
       {/* Fila de botones de tecnología */}
       <div className="flex gap-2 mb-4">
         {technologies.map((tech) => (
           <button
             key={tech.id}
             onClick={() => handleTechClick(tech.name)} // Llama a handleTechClick con el nombre de la tecnología
-            className="px-4 py-2 bg-paleBlue text-whiteBrkn rounded-lg shadow-lg hover:bg-azulMedio"
+            className="px-4 py-2 bg-paleBlue text-darkBlue rounded-lg shadow-lg hover:bg-azulMedio"
           >
             {tech.name}
           </button>
@@ -121,7 +139,7 @@ const CardGenerator = () => {
             }}
             className="px-4 py-2 bg-red-500 text-whiteBrkn rounded-lg shadow-lg hover:bg-red-400"
           >
-            Cancel
+            Reset
           </button>
         </div>
 
@@ -149,21 +167,9 @@ const CardGenerator = () => {
 
       {/* Botones de navegación */}
       <div className="flex justify-between mt-4">
-        <button
-          onClick={() => setPage(Math.max(0, page - 1))}
-          disabled={page === 0}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-400 disabled:bg-gray-300"
-          id="buttonPrev">
-          Anterior
-        </button>
-        <span className="text-lg font-semibold">{page + 1} de {totalPages}</span>
-        <button
-          onClick={() => setPage(Math.min(totalPages - 1, page + 1))}
-          disabled={page >= totalPages - 1}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-400 disabled:bg-gray-300"
-          id="buttonNext">
-          Siguiente
-        </button>
+        <span className="text-lg font-semibold flex flex-row gap-5 justify-center w-full">
+          {renderPageButtons()}
+        </span>
       </div>
     </div>
   );
