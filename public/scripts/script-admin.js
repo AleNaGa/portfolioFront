@@ -9,6 +9,7 @@ const pathToInsert = "/projects/insert";
 window.onload = () => {
     getFields(url + path);
     fetchTechnologies();
+    fetchDevelopers();
 };
 
 // Renderizar tabla inicial
@@ -61,25 +62,25 @@ function renderFields(array, allKeys) {
 
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
-        deleteButton.classList.add("bg-red-500", "hover:bg-red-600", "text-white", "py-2", "px-4", "rounded-lg", "text-xs", "font-montserrat", "ml-2", "transition-colors", "duration-300");
+        deleteButton.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue", "bg-red-500", "text-white", "font-medium", "rounded-lg", "hover:bg-red-600", "focus:outline-none", "focus:ring-2", "focus:ring-red-500", "mr-2");
         deleteButton.onclick = () => { console.log("Delete button clicked"); deleteField(getID(element)); };
         tdAcciones.appendChild(deleteButton);
 
         const editButton = document.createElement("button");
         editButton.textContent = "Edit";
-        editButton.classList.add("bg-blue-500", "hover:bg-blue-600", "text-white", "py-2", "px-4", "rounded-lg", "text-xs", "font-montserrat", "ml-2", "transition-colors", "duration-300");
+        editButton.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue", "bg-blue-500", "text-white", "font-medium", "rounded-lg", "hover:bg-blue-600", "focus:outline-none", "focus:ring-2", "focus:ring-red-500", "mr-2");
         editButton.onclick = () => { console.log("Edit button clicked"); editField(element.projectId, element); };
         tdAcciones.appendChild(editButton);
 
         const toTestButton = document.createElement("button");
         toTestButton.textContent = "To Test";
-        toTestButton.classList.add("bg-azulGris", "text-whiteBrkn", "py-2", "px-4", "rounded-lg", "ml-2", "text-xs", "font-montserrat");
+        toTestButton.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue", "bg-blue-500", "text-white", "font-medium", "rounded-lg", "hover:bg-blue-600", "focus:outline-none", "focus:ring-2", "focus:ring-red-500", "mr-2");
         toTestButton.onclick = () => { console.log("to Test button clicked"); toTest(element.projectId); };
         tdAcciones.appendChild(toTestButton);
 
         const toProdButton = document.createElement("button");
         toProdButton.textContent = "To Prod";
-        toProdButton.classList.add("bg-darkBlue", "text-whiteBrkn", "py-2", "px-4", "rounded-lg", "ml-2", "text-xs", "font-montserrat");
+        toProdButton.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue", "bg-blue-500", "text-white", "font-medium", "rounded-lg", "hover:bg-blue-600", "focus:outline-none", "focus:ring-2", "focus:ring-red-500", "mr-2");
         toProdButton.onclick = () => { console.log("to Prod button clicked"); toProd(element.projectId); };
         tdAcciones.appendChild(toProdButton);
 
@@ -103,6 +104,7 @@ async function getFields(url) {
         console.error("Error fetching projects:", error);
         renderFields([]);
         fetchTechnologies();
+        fetchDevelopers();
     }
 }
 
@@ -168,7 +170,7 @@ function editField(id, data) {
     console.log(`Editing project with ID: ${id}`, data); // Log para verificar que los datos se están pasando correctamente
     const form = document.getElementById("formEdit");
     form.innerHTML = "";
-    form.classList.add("p-4", "bg-whiteBrkn", "rounded", "shadow", "max-w-md", "mx-auto");
+    form.classList.add("p-4", "bg-whiteBrkn", "rounded", "shadow", "w-full", "mx-auto");
 
     const title = document.createElement("h4");
     title.textContent = `Formulario de Edición - Proyecto ID: ${id}`;
@@ -293,11 +295,10 @@ document.getElementById("assignBtnDev").onclick = function () {
     const developerId = document.getElementById("developerId").value;
     const projectId = document.getElementById("projectIdAddDev").value;
 
-    // Crear la URL para el endpoint
+
     const endpoint = `/projects/asigndev/${developerId}/toproject/${projectId}`;
     console.log(endpoint);
 
-    // Realizar la solicitud Fetch
     fetch(url+endpoint, {
         method: "POST",
         headers: {
@@ -328,11 +329,9 @@ document.getElementById("assignBtnTech").onclick = function () {
     const techId = document.getElementById("technologyId").value;
     const projectId = document.getElementById("projectIdAddTech").value;
 
-    // Crear la URL para el endpoint
     const endpoint = `/projects/asigntech/${techId}/toproject/${projectId}`;
     console.log(endpoint);
 
-    // Realizar la solicitud Fetch
     fetch(url + endpoint, {
         method: "POST",
         headers: {
@@ -376,7 +375,6 @@ document.getElementById("submitBtnDev").onclick = function() {
         projectsIds: projectsIds
     };
 
-    // Hacer el fetch POST al endpoint
     fetch(url + '/developers/insert', {
         method: 'POST',
         headers: {
@@ -412,7 +410,7 @@ document.getElementById("submitBtnTech").onclick = function() {
         techName: techName
     };
 
-    // Hacer el fetch POST al endpoint
+    // Hacer el fetch POST al endpoint para insertar
     fetch(url + '/technologies/insert', {
         method: 'POST',
         headers: {
@@ -443,7 +441,7 @@ const fetchTechnologies = async () => {
     try {
         const response = await fetch(url + "/technologies");
         const data = await response.json();
-        setTechnologies(data); // Guardamos las tecnologías en el estado
+        setTechnologies(data); // renderizamos la tabla
     } catch (error) {
         console.error("Error fetching technologies:", error);
     }
@@ -460,16 +458,20 @@ function setTechnologies(technologies) {
     const headerRow = document.createElement("tr");
     const headerName = document.createElement("th");
     const headerId = document.createElement("th");
+    const headerActions = document.createElement("th");
 
     headerName.textContent = "Tecnologías";
     headerId.textContent = "ID";
+    headerActions.textContent = "Acciones";
 
    
     headerName.classList.add("px-4", "py-2", "text-center", "bg-paleBlue", "text-darkBlue", "font-semibold", "border-2", "border-darkBlue");
     headerId.classList.add("px-4", "py-2", "text-center", "bg-paleBlue", "text-darkBlue", "font-semibold", "border-2", "border-darkBlue");
+    headerActions.classList.add("px-4", "py-2", "text-center", "bg-paleBlue", "text-darkBlue", "font-semibold", "border-2", "border-darkBlue");
 
     headerRow.appendChild(headerName);
     headerRow.appendChild(headerId);
+    headerRow.appendChild(headerActions);
     thead.appendChild(headerRow);
 
     
@@ -482,6 +484,15 @@ function setTechnologies(technologies) {
 
         const cell1 = document.createElement("td");
         const cell2 = document.createElement("td");
+        const cell3 = document.createElement("td");
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Eliminar";
+        deleteButton.onclick = () => { console.log("delete button clicked"); deleteTech(tech.id); };
+        cell3.appendChild(deleteButton);
+
+        deleteButton.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue", "bg-red-500", "text-white", "font-medium", "rounded-lg", "hover:bg-red-600", "focus:outline-none", "focus:ring-2", "focus:ring-red-500", "mr-2");
+        
 
 
         cell1.textContent  = tech.name;
@@ -490,19 +501,130 @@ function setTechnologies(technologies) {
        
         cell1.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue");
         cell2.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue");
+        cell3.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue");
 
         row.appendChild(cell1);
         row.appendChild(cell2);
+        row.appendChild(cell3);
         tbody.appendChild(row);
     });
 
     techTable.appendChild(thead);
     techTable.appendChild(tbody);
 
-    // Añadir la tabla al contenedor principal
+
     mainDiv.appendChild(techTable);
 }
 
+//funcion para mostrar developers
+const fetchDevelopers = async () => {
+    try {
+        const response = await fetch(url + "/developers");
+        const data = await response.json();
+        console.log(data.content);
+        setDevelopers(data.content); // renderizamos la tabla
+    } catch (error) {
+        console.error("Error fetching developers:", error);
+    }
+};
+
+function setDevelopers(developers) {
+    const mainDiv = document.getElementById("tableDev");
+    mainDiv.innerHTML = "";
+    const devTable = document.createElement("table");
+    devTable.classList.add("w-1/4", "mx-auto", "mt-4", "text-sm", "font-montserrat", "border-collapse","drop-shadow-lg");
+
+   
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headerName = document.createElement("th");
+    const headerId = document.createElement("th");
+    const headerProjects = document.createElement("th");
+    const headerActions = document.createElement("th");
+
+    headerActions.textContent = "Acciones";
+    headerName.textContent = "Desarrolladores";
+    headerId.textContent = "ID";
+    headerProjects.textContent = "Proyectos";
+
+
+   
+    headerName.classList.add("px-4", "py-2", "text-center", "bg-paleBlue", "text-darkBlue", "font-semibold", "border-2", "border-darkBlue");
+    headerId.classList.add("px-4", "py-2", "text-center", "bg-paleBlue", "text-darkBlue", "font-semibold", "border-2", "border-darkBlue");
+    headerProjects.classList.add("px-4", "py-2", "text-center", "bg-paleBlue", "text-darkBlue", "font-semibold", "border-2", "border-darkBlue");
+    headerActions.classList.add("px-4", "py-2", "text-center", "bg-paleBlue", "text-darkBlue", "font-semibold", "border-2", "border-darkBlue");
+
+    headerRow.appendChild(headerName);
+    headerRow.appendChild(headerId);
+    headerRow.appendChild(headerProjects);
+    headerRow.appendChild(headerActions);
+    thead.appendChild(headerRow);
+
+    const tbody = document.createElement("tbody");
+
+    developers.forEach((dev) => {
+        const row = document.createElement("tr");
+
+        row.classList.add();
+
+        const cell1 = document.createElement("td");
+        const cell2 = document.createElement("td");
+        const cell3 = document.createElement("td");
+        const cell4 = document.createElement("td");
+
+        cell1.textContent  = dev.developerName;
+        cell2.textContent = dev.developerId;
+        cell3.textContent = dev.projects.join(", ");
+        
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Eliminar";
+        deleteButton.onclick = () => { console.log("delete button clicked"); deleteDev(dev.developerId); };
+        cell4.appendChild(deleteButton);
+
+        deleteButton.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue", "bg-red-500", "text-white", "font-medium", "rounded-lg", "hover:bg-red-600", "focus:outline-none", "focus:ring-2", "focus:ring-red-500", "mr-2");
+        cell1.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue");
+        cell2.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue");
+        cell3.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue");
+        cell4.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue");
+
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        row.appendChild(cell3);
+        row.appendChild(cell4);
+        tbody.appendChild(row);
+    });
+
+    devTable.appendChild(thead);
+    devTable.appendChild(tbody);
+    mainDiv.appendChild(devTable);
+}
+
+//Metodos delete Dev y delete tech
+
+function deleteDev(id) {
+    console.log(`Deleting dev with ID: ${id}`); // Log para verificar el ID
+    const pathToDeleteDev = "/developers/delete/{id}";
+    const realPathDel = pathToDeleteDev.replace(/\{[^}]+\}/, id);
+    fetch(url + realPathDel, { method: "DELETE" })
+        .then((response) => {
+            if (!response.ok) throw new Error("Error en la solicitud");
+            fetchDevelopers();
+        })
+        .catch((error) => console.error("Error:", error));
+}
+
+function deleteTech(id) {
+    console.log(`Deleting tech with ID: ${id}`); // Log para verificar el ID
+    const pathToDeleteTech ="/technologies/delete/{id}";
+    const realPathDel = pathToDeleteTech.replace(/\{[^}]+\}/, id);
+    fetch(url + realPathDel, { method: "DELETE" })
+        .then((response) => {
+            if (!response.ok) throw new Error("Error en la solicitud");
+            console.log("Tech deleted successfully");
+            fetchTechnologies();
+        })        
+        .catch((error) => console.error("Error:", error));    
+}        
 
 
 
