@@ -1,7 +1,7 @@
 @import '@fontsource/montserrat/index.css'; 
 /* Esto oculta el modal cuando tiene la clase 'hidden' */
 #form-modal.hidden {
-  display: none; /* Asegura que el modal se oculte cuando se agrega la clase 'hidden' */
+  display: none; 
 }
 
 /* Otros estilos para el modal */
@@ -38,4 +38,3 @@ input.invalid, textarea.invalid {
 input.valid, textarea.valid {
   border-color: green;
 }
-

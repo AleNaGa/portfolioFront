@@ -25,7 +25,7 @@ const nav = [
 
 <nav class="py-3 px-6 fixed w-screen top-0 z-50 bg-whiteBrkn flex flex-row justify-between">
     <ul class="flex gap-7 flex-row pl-14">
-        {nav.map((item) => (
+        {nav.map((item) => ( // Recorremos el array de nav y generamos una lista de enlaces
             <li>
                 <a href={item.href} class="text-darkBlue font-roboto italic font-medium text-30 hover:text-azulGris hover:drop-shadow-md" id={item.id}></a>
             </li>

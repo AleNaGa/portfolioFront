@@ -7,7 +7,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
   
     // credenciales
     if (username === "admin" && password === "Abcd1234") {
-      // Creamos el token falso
+      // Creamos el token falso a partir del código pasado por classroom
       const fakeToken = {
         sub: "1",
         name: "admin",
@@ -16,8 +16,8 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
   
       // Guardamos el token en el localStorage
       localStorage.setItem("fakeToken", JSON.stringify(fakeToken));
-      window.location.href = "/admin-editor";
-    } else {
+      window.location.href = "/admin-editor";// Redirigimos a la pagina de admin si todas las credenciales son correctas
+    } else {// Si las credenciales son incorrectas se muestra un alert y se limpia el formulario
       alert("Usuario o contraseña incorrectos");
       event.target.reset();
     }

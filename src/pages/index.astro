@@ -23,10 +23,10 @@ import References from '../components/References.astro';
 			  <div class="flex-1 flex justify-center flex-wrap p-20 flex-col gap-28 relative z-20">
 				<div>
 				  <h1 class="text-60 font-montserrat font-extrabold italic text-wrap text-darkBlue drop-shadow-lg" id="aboutMeTitle"></h1>
-				  <h3 class="text-3xl font-montserrat italic font-semibold text-azulGris drop-shadow-md" id="aboutMeSubtitle"></h3>
+				  <h3 class="text-3xl font-montserrat italic font-semibold text-crudo drop-shadow-md" id="aboutMeSubtitle"></h3>
 				</div>
 				<div class="text-wrap">
-				  <p class="font-roboto font-medium text-20 text-darkBlue w-10/12 text-lg leading-relaxed drop-shadow-sm" id="aboutMePhrase"></p>
+				  <p class="font-montserrat font-medium text-20 text-darkBlue w-10/12" id="aboutMePhrase"></p>
 				</div>
 			  </div>
 		  
@@ -45,6 +45,7 @@ import References from '../components/References.astro';
 			<Studies id="studies1" />
 			<Studies id="studies2" />
 			<Studies id="studies3" />
+			<Studies id="studies4" />
 		</div>
 	</div>
 </div>
@@ -56,16 +57,25 @@ import References from '../components/References.astro';
 		<h1 class="text-60 font-montserrat font-extrabold italic text-darkBlue" id="skillsTitle"></h1>
 		<h3 class="px-10 text-3xl font-montserrat italic font-semibold text-azulGris" id="hardskills"></h3>
 		<div class="flex flex-wrap px-10 gap-5">
-			<Skill skill='HTML' level={80} />
-			<Skill skill='HTML' level={80} />
-			<Skill skill='HTML' level={80} />
-			<Skill skill='HTML' level={80} />
-			<Skill skill='HTML' level={80} />
+			<Skill skill='HTML' level={57} />
+			<Skill skill='CSS' level={39} />
+			<Skill skill='Tailwind' level={63} />
+			<Skill skill='Java' level={97} />
+			<Skill skill='JavaScript' level={85} />
+			<Skill skill='PHP' level={59} />
+			<Skill skill='MySQL' level={93} />
+			<Skill skill='Python' level={47} />
+			<Skill skill='SpringBoot' level={57} />
 			
 		</div>
 		<h3 class="px-10 text-3xl font-montserrat italic font-semibold text-azulGris text-wrap" id="softskills"></h3>
-		<div class="flex flex-col px-10 gap-5">
-			<Skill skill='Comunicación' level={100} />
+		<div class="flex flex-wrap px-10 gap-5">
+			<Skill skill='Comunication' level={95} />
+			<Skill skill='Teamwork' level={100} />
+			<Skill skill='Critical Thinking' level={89} />
+			<Skill skill='Leadership' level={79} />
+			<Skill skill='Creativity' level={93} />
+			<Skill skill='Problem Solving' level={100} />
 			
 		</div>
 	</div>

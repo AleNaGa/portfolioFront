@@ -1,7 +1,7 @@
 const loadContent = async (language) => {
   try {
       // Carga el archivo JSON del idioma correspondiente
-      const response = await fetch(`/data/data-${language}.json`);
+      const response = await fetch(`/data/lang-${language}.json`);
       if (!response.ok) throw new Error('Error al cargar el archivo JSON');
       const data = await response.json();
 
@@ -44,5 +44,5 @@ const loadContent = async (language) => {
 document.getElementById('btn-es').addEventListener('click', () => loadContent('es'));
 document.getElementById('btn-en').addEventListener('click', () => loadContent('en'));
 
-// Cargar el contenido en español por defecto
+// Cargar el contenido en inglés por defecto
 loadContent('en');

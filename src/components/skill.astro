@@ -10,7 +10,7 @@ const { skill, level } = Astro.props;
 
 <div class="w-full max-w-md">
   <div class="flex justify-between mb-1">
-    <span class="text-sm font-medium text-darkBlue">{skill}</span>
+    <span class="text-sm font-medium text-darkBlue" id={`${skill}`}>{skill}</span>
     <span class="text-sm font-medium text-darkBlue">{level}%</span>
   </div>
   <div class="w-full h-4 bg-azulGris rounded-full">

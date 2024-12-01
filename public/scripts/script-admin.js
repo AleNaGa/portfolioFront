@@ -24,28 +24,32 @@ function checkJSON(array) {
     return allKeys;
 }
 
+// Renderizar tabla
 function renderFields(array, allKeys) {
+    // Limpiar la tabla
     document.getElementById("formEdit").innerHTML = "";
     const tableDiv = document.getElementById("tablediv");
     tableDiv.innerHTML = "";
+    // Crear la tabla
     const table = document.createElement("table");
     table.classList.add("table-auto", "border-collapse", "border-1", "border-darkBlue", "w-full", "max-w-4xl", "mx-auto", "font-montserrat", "shadow-lg", "rounded-lg");
-
+    // Crear la cabecera
     const tr1 = document.createElement("tr");
-    allKeys.forEach((element) => {
+    allKeys.forEach((element) => {// Iterar sobre las claves para generar las cabeceras
         const th = document.createElement("th");
         th.classList.add("border-2", "border-darkBlue", "px-4", "py-2", "text-darkBlue", "text-sm", "font-montserrat", "bg-paleBlue", "text-center");
         th.textContent = element;
         tr1.appendChild(th);
     });
 
+    // Crear la cabecera de acciones
     const thAcciones = document.createElement("th");
     thAcciones.classList.add("border-2", "border-darkBlue", "px-4", "py-2", "text-darkBlue", "text-sm", "font-montserrat", "bg-paleBlue", "text-center");
     thAcciones.textContent = "Acciones";
     tr1.appendChild(thAcciones);
 
     table.appendChild(tr1);
-
+    // Crear las filas de la tabla por cada objeto que se recoja del fetch
     array.forEach((element) => {
         const tr = document.createElement("tr");
         tr.classList.add();
@@ -56,10 +60,10 @@ function renderFields(array, allKeys) {
             td.textContent = typeof element[key] === "object" ? JSON.stringify(element[key]) : element[key];
             tr.appendChild(td);
         });
-
+        // Crear la celda de acciones
         const tdAcciones = document.createElement("td");
         tdAcciones.classList.add("border-2", "border-darkBlue", "px-4", "py-2", "text-center");
-
+        // Crear los botones con su acción correspondiente
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.classList.add("px-4", "py-2", "text-center", "border-2", "border-darkBlue", "bg-red-500", "text-white", "font-medium", "rounded-lg", "hover:bg-red-600", "focus:outline-none", "focus:ring-2", "focus:ring-red-500", "mr-2");
@@ -94,6 +98,7 @@ function renderFields(array, allKeys) {
 
 
 // GET Fields
+// Función para obtener los campos de la tabla de la API
 async function getFields(url) {
     try {
         const response = await fetch(url);
@@ -140,7 +145,7 @@ document.getElementById("insertForm").addEventListener("submit", function(event)
     addField(data);
 });
 
-// Función para hacer el fetch y enviar los datos al backend
+// Función para hacer el fetch de insertar y enviar los datos al backend
 function addField(data) {
     fetch(url + pathToInsert, {
         method: "POST",
@@ -177,6 +182,7 @@ function editField(id, data) {
     title.classList.add("text-lg", "font-semibold", "text-darkBlue", "mb-4");
     form.appendChild(title);
 
+    // Campos del formulario
     const fields = [
         { name: "projectId", type: "number", label: "ID del Proyecto" },
         { name: "name", type: "text", label: "Nombre del Proyecto" },
@@ -190,6 +196,7 @@ function editField(id, data) {
         { name: "developersIds", type: "text", label: "IDs de Desarrolladores (separados por comas)" },
     ];
 
+    // Renderizar los campos en el formulario desde los datos del proyecto
     fields.forEach(({ name, type, label }) => {
         const fieldLabel = document.createElement("label");
         fieldLabel.textContent = label;
@@ -204,6 +211,7 @@ function editField(id, data) {
         form.appendChild(input);
     });
 
+    // Botón de Submit
     const submit = document.createElement("input");
     submit.type = "submit";
     submit.value = "Guardar Cambios";
@@ -227,7 +235,7 @@ function editField(id, data) {
 
 // Actualizar Campo
 function updateField(id, data) {
-    const realPath = pathToEdit.replace(/\{[^}]+\}/, id);
+    const realPath = pathToEdit.replace(/\{[^}]+\}/, id); // Reemplaza el ID en la ruta
     fetch(url + realPath, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -243,7 +251,7 @@ function updateField(id, data) {
 // Eliminar Campo
 function deleteField(id) {
     console.log(`Deleting project with ID: ${id}`); // Log para verificar el ID
-    const realPathDel = pathToDelete.replace(/\{[^}]+\}/, id);
+    const realPathDel = pathToDelete.replace(/\{[^}]+\}/, id); // Reemplaza el ID en la ruta
     fetch(url + realPathDel, { method: "DELETE" })
         .then((response) => {
             if (!response.ok) throw new Error("Error en la solicitud");
@@ -260,7 +268,7 @@ function getID(element) {
 // Cambiar el estado del proyecto
 function toTest(id) {
     const pathTotest = "/projects/totesting/{id}";
-    const realPath = pathTotest.replace(/\{[^}]+\}/, id);
+    const realPath = pathTotest.replace(/\{[^}]+\}/, id); // Reemplaza el ID en la ruta
     fetch(url + realPath, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -275,7 +283,7 @@ function toTest(id) {
 // Cambiar el estado del proyecto
 function toProd(id) {
     const pathToProd = "/projects/toprod/{id}";
-    const realPath = pathToProd.replace(/\{[^}]+\}/, id);
+    const realPath = pathToProd.replace(/\{[^}]+\}/, id); // Reemplaza el ID en la ruta
     fetch(url + realPath, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -375,6 +383,8 @@ document.getElementById("submitBtnDev").onclick = function() {
         projectsIds: projectsIds
     };
 
+    // Hacer el fetch POST al endpoint para insertar aquí directamente
+
     fetch(url + '/developers/insert', {
         method: 'POST',
         headers: {
@@ -447,6 +457,8 @@ const fetchTechnologies = async () => {
     }
 };
 
+
+//Funcion para mostrar las tecnologías
 function setTechnologies(technologies) {
     const mainDiv = document.getElementById("tableTech");
     mainDiv.innerHTML = "";
@@ -477,6 +489,7 @@ function setTechnologies(technologies) {
     
     const tbody = document.createElement("tbody");
 
+    // Iteramos sobre las tecnologías y creamos las filas
     technologies.forEach((tech) => {
         const row = document.createElement("tr");
 
@@ -528,6 +541,7 @@ const fetchDevelopers = async () => {
     }
 };
 
+//funcion para mostrar developers Idéntica a la de las tecnologías
 function setDevelopers(developers) {
     const mainDiv = document.getElementById("tableDev");
     mainDiv.innerHTML = "";
@@ -599,7 +613,7 @@ function setDevelopers(developers) {
     mainDiv.appendChild(devTable);
 }
 
-//Metodos delete Dev y delete tech
+//Metodo delete Dev
 
 function deleteDev(id) {
     console.log(`Deleting dev with ID: ${id}`); // Log para verificar el ID
@@ -613,6 +627,8 @@ function deleteDev(id) {
         .catch((error) => console.error("Error:", error));
 }
 
+
+//Metodo de delete tech
 function deleteTech(id) {
     console.log(`Deleting tech with ID: ${id}`); // Log para verificar el ID
     const pathToDeleteTech ="/technologies/delete/{id}";

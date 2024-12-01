@@ -80,7 +80,7 @@ const CardGenerator = () => {
     fetchTechnologies(); // Llamamos a la función para obtener las tecnologías
   }, [page]);
 
-  //Función para renderizar los botones de las páginas
+  //Función para renderizar los botones de las páginas. Funcionan a partir de la variable arrayPages, que se pasa como parámetro desde el fetch 
   const renderPageButtons = () => {
     return arrayPages.map((pageNumber) => (
       <button
@@ -97,7 +97,7 @@ const CardGenerator = () => {
   
 
   return (
-    <div class="flex flex-col w-full">
+    <div className="flex flex-col w-full">
       {/* Fila de botones de tecnología */}
       <div className="flex gap-2 mb-4">
         {technologies.map((tech) => (
@@ -122,7 +122,7 @@ const CardGenerator = () => {
           />
           <button
             onClick={handleSearch} // Llama a la función de búsqueda al hacer clic
-            disabled={searchTerm.length < 3} // Deshabilitar si el término de búsqueda es menor a 3 caracteres
+            disabled={searchTerm.length < 3} // Deshabilita el botón si el término de búsqueda es menor a 3 caracteres
             className={`px-4 py-2 rounded-lg shadow-lg ${
               searchTerm.length < 3
                 ? "bg-gray-400 cursor-not-allowed"
@@ -134,8 +134,8 @@ const CardGenerator = () => {
           </button>
           <button
             onClick={() => {
-              setSearchTerm(""); // Restablece el término de búsqueda
-              fetchProjects(); // Llama a una función para mostrar todos los proyectos
+              setSearchTerm(""); // Restablece los proyectos llamando a la función general
+              fetchProjects(); 
             }}
             className="px-4 py-2 bg-crudo text-whiteBrkn rounded-lg shadow-lg hover:bg-red-400"
           >
@@ -148,7 +148,8 @@ const CardGenerator = () => {
       {/* Mostrar las tarjetas de proyectos */}
       <div className="flex flex-row gap-4">
         {posts.map((project) => (
-          <Card
+          <Card //Creamos la tarjeta con TODOS los datos del proyecto aunque no vayamos a mostrarlos todos. 
+                //Así el componente es reutilizable y permite que se escale si es necesario mostrar más información
             key={project.projectId}
             projectId={project.projectId}
             name={project.name}

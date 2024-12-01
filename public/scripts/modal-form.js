@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form'); 
   const successMessage = document.getElementById('success-message');
   
+  // Abrimos el formulario al hacer clic en el enlace
   openFormLink.addEventListener('click', function(e) {
     e.preventDefault();  
     modal.classList.remove('hidden');  
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Función para validar el campo email
   const validateEmail = (input) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para validar correos
-    if (input.value.trim() === "") {
+    if (input.value.trim() === "") { // Si el correo esta vacio
       input.classList.add('invalid');
       input.classList.remove('valid');
     } else if (emailRegex.test(input.value.trim())) { // Si el correo es válido
@@ -64,15 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const validateMessage = (input) => {
     input.classList.remove('valid', 'invalid');
 
-    if (input.value.trim() === "") {
+    if (input.value.trim() === "") {// Si el mensaje esta vacio
       input.classList.add('invalid');
-      error.textContent = 'Message must be at least 20 characters long.';
     }else {
       input.classList.remove('invalid');
-      if (input.value.trim().length < 20){
+      if (input.value.trim().length < 20){// Si el mensaje es menor a 20 caracteres
         input.classList.add('invalid');
         input.classList.remove('valid');
-      }else{
+      }else{// Si el mensaje es mayor a 20 caracteres
         input.classList.add('valid');
         input.classList.remove('invalid');
       }
@@ -81,19 +81,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Manejar la validación en tiempo real
   form.querySelectorAll('input, textarea').forEach(input => {
-    input.addEventListener('blur', () => {
-      if(input.id === 'name') {
+    input.addEventListener('blur', () => {// Al perder el foco del campo
+      if(input.id === 'name') {//si perdemos el foco del campo name
         validateName(input);
       }
-      else if(input.id === 'email') {
+      else if(input.id === 'email') {//si perdemos el foco del campo email
         validateEmail(input);
       }
-      else if (input.id === 'message') {
+      else if (input.id === 'message') {//si perdemos el foco del campo message
         validateMessage(input);
       }
     });
-    input.addEventListener('input', () => {
-      validateField(input);
+    input.addEventListener('input', () => {// Al escribir en el campo, no necesariamente perder el foco
+      validateField(input); //funció genérica que llama a las otras validaciones
     });
   });
 
