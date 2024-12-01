@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Card from './Card'; // Asegúrate de que esta ruta esté correcta
+import Card from './Card';
 import { render } from 'astro/compiler-runtime';
 
 const CardGenerator = () => {
@@ -8,7 +8,8 @@ const CardGenerator = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [searchTerm, setSearchTerm] = useState(""); // El estado para el campo de búsqueda
   const [technologies, setTechnologies] = useState([]); // Estado para las tecnologías
-  const url = "http://localhost:8080/api/v1/projects";
+  const deployedUrl = "http://20.77.2.189:8080/projectmgmt-0.0.1-SNAPSHOT/api/v1";// URL DESPLEGADA
+  const url = deployedUrl + "/projects";// URL DESPLEGADA
   const arrayPages = [...Array(totalPages).keys()];// Creamos un array con el total de paginas para el paginado
 
   // Esta función maneja la lógica para obtener proyectos de la API
@@ -27,7 +28,7 @@ const CardGenerator = () => {
   // Función para obtener las tecnologías disponibles
   const fetchTechnologies = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/v1/technologies");
+      const response = await fetch(deployedUrl + "/technologies");
       const data = await response.json();
       setTechnologies(data); // Guardamos las tecnologías en el estado
     } catch (error) {
@@ -38,7 +39,7 @@ const CardGenerator = () => {
   // Esta función maneja la búsqueda por palabra
   const getByWord = async (word = "") => {
     try {
-      const response = await fetch(`${url}/byword/${word}?size=3&page=${page}`);
+      const response = await fetch(deployedUrl + `/projects/byword/${word}?size=3&page=${page}`);
       const data = await response.json();
       if (data === null || data.content.length === 0) {
         alert('No se encontraron proyectos');
@@ -55,7 +56,7 @@ const CardGenerator = () => {
   // Esta función maneja la búsqueda por tecnología
   const getByTech = async (techName) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/projects/bytech/${techName}?size=3&page=${page}`);
+      const response = await fetch(deployedUrl + `/projects/bytech/${techName}?size=3&page=${page}`);
       const data = await response.json();
         setPosts(data.content || []);
         setTotalPages(data.totalPages || 1);
