@@ -1,0 +1,26 @@
+---
+// Recibe el id como propiedad
+interface props {
+  id: string;
+}
+// Desestructuramos la propiedad id
+const { id } = Astro.props;
+---
+<div class="flex items-center bg-darkBlue p-6 w-1/4 rounded-3xl shadow-md hover:scale-105 transition-all duration-300 ease-in-out">
+  <img
+    class="object-cover h-32 w-32 rounded-full border-4 border-whiteBrkn shadow-lg"
+    src={`/references/${id}.png`}
+    alt={`${id}.png`}
+    id={`${id}.png`}
+  />
+  <div class="flex flex-col justify-center ml-6 text-whiteBrkn w-2/3">
+    <h4 class="text-xl font-montserrat font-bold text-whiteBrkn mb-2" id={`${id}-title`}></h4>
+    <p class="font-montserrat text-sm text-whiteBrkn mb-3 text-left" id={`${id}-description`}></p>
+    <p class="font-montserrat text-xs text-crudo" id={`${id}-contact`}></p>
+  </div>
+</div>
+
+
+
+
+

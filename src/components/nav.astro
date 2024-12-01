@@ -1,0 +1,52 @@
+---
+const nav = [
+    {
+        id:"aboutMe",
+        href: "#aboutMesection",
+    },
+    {
+        id: "studies",
+        href: "#studiessection",
+    },
+    {
+        id: "skills",
+        href: "#skillssection",
+    },
+    {
+        id: "work",
+        href: "#worksection",
+    },
+    {
+        id: "projects",
+        href: "#projectsection",
+    }
+]
+---
+
+<nav class="py-3 px-6 fixed w-screen top-0 z-50 bg-whiteBrkn flex flex-row justify-between">
+    <ul class="flex gap-7 flex-row pl-14">
+        {nav.map((item) => ( // Recorremos el array de nav y generamos una lista de enlaces
+            <li>
+                <a href={item.href} class="text-darkBlue font-roboto italic font-medium text-30 hover:text-azulGris hover:drop-shadow-md" id={item.id}></a>
+            </li>
+        ))}
+    </ul>
+    <ul class="flex gap-7 flex-row pr-24">
+        <li>
+            <a class="transition-all duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl flex items-center" href="/log-admin">
+                <img src="admin.png" alt="admin" class="w-6 h-6 rounded-xl" />
+            </a>
+        </li>
+        <li>
+            <button class="transition-all duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl flex items-center" id="btn-en">
+                <img src="en.jpg" alt="en" class="w-6 h-6 rounded-xl" />
+            </button>
+        </li>
+        <li>
+            <button class="transition-all duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl flex items-center" id="btn-es">
+                <img src="es.png" alt="es" class="w-6 h-6 rounded-xl"/>
+            </button>
+        </li>
+    </ul>
+    
+</nav>
