@@ -1,5 +1,5 @@
 // Paths
-const url = "http://localhost:8080/api/v1";
+const url = "http://20.77.2.189:8080/projectmgmt-0.0.1-SNAPSHOT/api/v1";// URL DESPLEGADA
 const path = "/projects";
 const pathToEdit = "/projects/update/{id}";
 const pathToDelete = "/projects/delete/{id}";
