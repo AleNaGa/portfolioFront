@@ -10,10 +10,9 @@ import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server', // Salida para aplicaciones con contenido dinámico
+  output: 'static', // Genera archivos estáticos en lugar de salida dinámica
   adapter: node({
-    mode: 'standalone', // Configuración ideal para Azure
+    mode: 'standalone', // Si aún usas Node.js en Azure
   }),
   integrations: [tailwind(), react()],
-  
 });
