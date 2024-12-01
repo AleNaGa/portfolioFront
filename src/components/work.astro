@@ -1,0 +1,31 @@
+---
+interface props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+<div class="flex flex-row justify-between p-10  bg-darkBlue rounded-full shadow-[4px_4px_6px_0px_rgba(0,0,0,0.2)]">
+  <div class="flex flex-col p-5 gap-2 w-3/4">
+      <h3 class="font-roboto font-bold italic text-xl text-whiteBrkn" id={`${id}-title`}></h3>
+      <p class="font-roboto font-light italic text-md text-paleBlue" id={`${id}-date`}></p>
+      <p class="font-montserrat font-light text-30 text-whiteBrkn text-wrap" id={`${id}-description`}></p>
+  </div>
+  <div 
+  class="flex justify-center align-middle items-center w-[360px] h-[140px] bg-whiteBrkn p-2 rounded-full transition-all duration-500 ease-in-out hover:scale-105 hover:opacity-90"
+>
+  <a 
+    href="#" 
+    id={`${id}-link`} 
+    class="block w-full h-full relative overflow-hidden rounded-full" 
+    target="_blank"
+  >
+    <!-- Imagen ajustada al contenedor -->
+    <img 
+      class="object-cover w-full h-full" 
+      src={`/${id}-img.png`} 
+      alt={`${id}-img`}
+    />
+  </a>
+</div>
+
+</div>
