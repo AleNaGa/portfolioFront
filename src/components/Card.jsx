@@ -37,7 +37,7 @@ const Card = ({ // Creamos un componente Card con las propiedades totales del pr
             <a
               href={repoUrl}
               target="_blank"
-              className="w-12 h-12 flex items-center justify-center bg-azulGris rounded-full transition-transform duration-300 hover:scale-110"
+              className="w-12 h-12 flex items-center justify-center bg-whiteBrkn rounded-full transition-transform duration-300 hover:scale-110"
             >
               <img
                 src="/gitHubIcon.png"

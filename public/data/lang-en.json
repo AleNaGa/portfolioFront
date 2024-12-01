@@ -51,12 +51,14 @@
         "work2": {
             "title": "Crew Leader at Veganitessen",
             "description": "Led a team at Veganitessen, managing daily operations and ensuring excellent service in a fast-paced hospitality environment.",
-            "date": "2020-2021"
+            "date": "2020-2021",
+            "link":"https://veganitessen.es"
         },
         "work3": {
             "title": "Stage Designer at Wallahye Productions",
             "description": "Contributed to creative stage designs and managed the technical execution of projects as part of a collaborative production team.",
-            "date": "2019-2020"
+            "date": "2019-2020",
+            "link":"https://es.linkedin.com/in/wallahye-productions-sevilla-5ba302163"
         },
         "referencesTitle": "References",
         "reference1": {
